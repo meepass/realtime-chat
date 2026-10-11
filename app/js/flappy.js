@@ -41,8 +41,8 @@ export function mountFlappy(el, { onShare }) {
   }
   window.addEventListener('message', e => {
     if (!frame || e.source !== frame.contentWindow || e.origin !== location.origin || !e.data) return;
-    if (e.data.type === 'chathouse-stats' && e.data.game === 'flappy') { const g = allTime().games; if (g !== lastGames) { lastGames = g; recordRun(); } }
-    if (e.data.type === 'chathouse-share' && e.data.game === 'flappy') onShare(flappyCard());
+    if (e.data.type === 'miduhouse-stats' && e.data.game === 'flappy') { const g = allTime().games; if (g !== lastGames) { lastGames = g; recordRun(); } }
+    if (e.data.type === 'miduhouse-share' && e.data.game === 'flappy') onShare(flappyCard());
   });
   const pause = () => { if (frame) try { frame.contentWindow.postMessage({ type: 'pause' }, location.origin); } catch {} };
   return {

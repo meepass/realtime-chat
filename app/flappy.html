@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
-<title>Flappy · ChatHouse</title>
+<title>Flappy · MiduHouse</title>
 <style>
   @font-face{font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;src:url("../fonts/inter-latin.woff2") format("woff2")}
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -84,14 +84,14 @@
   const embedded = window.parent !== window;
   const shareBtn = document.getElementById('share');
   shareBtn.addEventListener('pointerdown', e => e.stopPropagation());
-  shareBtn.addEventListener('click', () => { try { parent.postMessage({ type: 'chathouse-share', game: 'flappy' }, location.origin); } catch {} shareBtn.textContent = 'Shared ✓'; setTimeout(() => shareBtn.textContent = '💬 Share to room', 1500); });
+  shareBtn.addEventListener('click', () => { try { parent.postMessage({ type: 'miduhouse-share', game: 'flappy' }, location.origin); } catch {} shareBtn.textContent = 'Shared ✓'; setTimeout(() => shareBtn.textContent = '💬 Share to room', 1500); });
   function die() {
     if (state !== 'play') return;
     state = 'over'; overAt = performance.now(); flashA = 0.6;
     if (debugRun) return; // debug-hook runs never count
     if (score > best) { best = score; newBest = true; try { localStorage.setItem(KEY('best'), best); } catch {} }
     try { localStorage.setItem(KEY('last'), score); localStorage.setItem(KEY('games'), (+localStorage.getItem(KEY('games')) || 0) + 1); } catch {}
-    if (embedded) try { parent.postMessage({ type: 'chathouse-stats', game: 'flappy', newBest }, location.origin); } catch {}
+    if (embedded) try { parent.postMessage({ type: 'miduhouse-stats', game: 'flappy', newBest }, location.origin); } catch {}
   }
 
   function update(dt) {

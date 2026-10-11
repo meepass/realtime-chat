@@ -1,4 +1,4 @@
-# ChatHouse app (preview)
+# MiduHouse app (preview)
 
 Mobile-first preview of "host a room + play the daily", served at `/app/`. The main site at `/` is unchanged.
 

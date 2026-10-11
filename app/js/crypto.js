@@ -3,7 +3,7 @@
 // The relay only sees a hashed topic and ciphertext.
 const enc = new TextEncoder(), dec = new TextDecoder();
 // Legacy protocol constants (topic namespace + key salt below), kept unchanged for compatibility so
-// rooms created before the ChatHouse rename still connect. Not user-visible branding.
+// rooms created before the app was renamed still connect. Not user-visible branding.
 const APP = 'offsuit-rtchat-7f3k9q';
 const b64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
 const unb64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
